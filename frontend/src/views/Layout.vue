@@ -45,7 +45,9 @@
           <h3>视频接口</h3>
         </div>
         
-        <!-- More feature cards can be added here -->
+        <div class="feature-card glass-card" @click="goToInterfaces">
+          <h3>接口管理</h3>
+        </div>
       </div>
     </main>
     
@@ -167,6 +169,10 @@ const handleDeleteCategory = async (category) => {
 
 const goToVideos = () => {
   router.push('/videos')
+}
+
+const goToInterfaces = () => {
+  router.push('/interfaces')
 }
 
 const handleLogout = () => {

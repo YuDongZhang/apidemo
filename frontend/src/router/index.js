@@ -22,6 +22,16 @@ const routes = [
                 path: 'videos',
                 name: 'VideoList',
                 component: () => import('../views/video/VideoList.vue')
+            },
+            {
+                path: 'interfaces',
+                name: 'InterfaceList',
+                component: () => import('../views/interface/InterfaceList.vue')
+            },
+            {
+                path: 'interfaces/:id',
+                name: 'InterfaceForm',
+                component: () => import('../views/interface/InterfaceForm.vue')
             }
         ]
     }
