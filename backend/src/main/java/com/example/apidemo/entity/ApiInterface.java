@@ -1,5 +1,6 @@
 package com.example.apidemo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "api_interfaces")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class ApiInterface {
 
     @Id
@@ -26,6 +28,7 @@ public class ApiInterface {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     private Category category;
 
     /**

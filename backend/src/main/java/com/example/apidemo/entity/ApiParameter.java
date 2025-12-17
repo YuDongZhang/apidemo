@@ -1,5 +1,7 @@
 package com.example.apidemo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "api_parameters")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class ApiParameter {
 
     @Id
@@ -28,6 +31,7 @@ public class ApiParameter {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "interface_id", nullable = false)
+    @JsonIgnore
     private ApiInterface apiInterface;
 
     /**
@@ -36,12 +40,14 @@ public class ApiParameter {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
+    @JsonIgnore
     private ApiParameter parent;
 
     /**
      * 子参数列表
      */
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({ "parent", "apiInterface" })
     private List<ApiParameter> children = new ArrayList<>();
 
     /**
