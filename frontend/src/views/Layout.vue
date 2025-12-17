@@ -42,11 +42,7 @@
       
       <div class="feature-grid">
         <div class="feature-card glass-card" @click="goToVideos">
-          <div class="feature-icon">
-            <el-icon size="48"><VideoCamera /></el-icon>
-          </div>
           <h3>视频接口</h3>
-          <p>管理视频内容，支持增删改查</p>
         </div>
         
         <!-- More feature cards can be added here -->
