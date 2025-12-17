@@ -178,7 +178,7 @@ const handleLogout = () => {
 <style scoped>
 .layout-container {
   display: grid;
-  grid-template-columns: 250px 1fr 350px;
+  grid-template-columns: 250px auto 1fr;
   min-height: 100vh;
   gap: 20px;
   padding: 20px;
